@@ -8,174 +8,163 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #000000, #1a001a);
-  color: white;
-  text-align: center;
+  background: linear-gradient(135deg, #ffe6f0, #ffcce6, #ffb3d9);
   overflow-x: hidden;
-}
-
-.section {
-  padding: 80px 20px;
-  min-height: 100vh;
+  text-align: center;
+  color: #b30059;
 }
 
 h1 {
+  margin-top: 80px;
   font-size: 40px;
-  margin-bottom: 20px;
 }
 
 p {
-  font-size: 20px;
+  font-size: 18px;
   max-width: 600px;
-  margin: auto;
-  line-height: 1.6;
+  margin: 20px auto;
 }
 
-button {
-  margin-top: 30px;
-  padding: 12px 25px;
-  border: none;
-  background: #ff4d88;
-  color: white;
-  font-size: 16px;
-  border-radius: 25px;
+.heart-container {
+  margin-top: 80px;
   cursor: pointer;
-  transition: 0.3s;
+  position: relative;
 }
 
-button:hover {
-  background: #ff1a66;
+.heart {
+  font-size: 120px;
+  animation: pulse 1.5s infinite;
 }
 
-img {
-  width: 90%;
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.gallery {
+  display: none;
+  margin-top: 40px;
+}
+
+.photo-card {
+  margin: 40px auto;
   max-width: 400px;
+  animation: fadeIn 1s ease forwards;
+}
+
+.photo-card img {
+  width: 100%;
   border-radius: 20px;
-  margin-top: 20px;
-  box-shadow: 0 0 20px rgba(255, 77, 136, 0.6);
+  box-shadow: 0 10px 25px rgba(255, 0, 102, 0.3);
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1.5s ease;
+.message {
+  margin-top: 15px;
+  font-size: 16px;
+  padding: 0 20px;
 }
 
-.show {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-iframe {
-  margin-top: 20px;
-  border-radius: 15px;
+.floating-heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100vh); }
 }
 </style>
 </head>
 
 <body>
 
-<div class="section fade-in">
-  <h1>March 5th, 2025</h1>
-  <p>
-    The day I met the girl who changed everything.
-    I didn’t know it then…
-    but this was the beginning of my favorite story.
-  </p>
-  <button onclick="scrollToNext()">Start Our Journey ❤️</button>
+<h1>March 5th 💖</h1>
+<p>
+The day I met the girl who became my favorite person.
+Click the heart below to relive our journey.
+</p>
+
+<div class="heart-container" onclick="openGallery()">
+  <div class="heart">❤️</div>
+  <p>(Click Me)</p>
 </div>
 
-<div class="section fade-in">
-  <h1>The First Time I Saw You</h1>
-  <img src="your-photo-1.jpg" alt="Our First Photo">
-  <p>
-    I still remember that smile.
-    I remember how I felt.
-    Something about you felt different.
-  </p>
+<div class="gallery" id="gallery">
 
-  <!-- Romantic Song 1 -->
-  <iframe width="300" height="170"
-  src="https://www.youtube.com/embed/450p7goxZqg"
-  allow="autoplay; encrypted-media" allowfullscreen>
-  </iframe>
-</div>
+  <div class="photo-card">
+    <img src="photo1.jpg">
+    <div class="message">This was the beginning of everything ❤️</div>
+  </div>
 
-<div class="section fade-in">
-  <h1>The Moments That Made Me Fall</h1>
-  <img src="your-photo-2.jpg" alt="Cute Moment">
-  <p>
-    Every laugh.
-    Every late-night talk.
-    Every small moment that became a big memory.
-  </p>
+  <div class="photo-card">
+    <img src="photo2.jpg">
+    <div class="message">The smile that made me fall for you.</div>
+  </div>
 
-  <!-- Romantic Song 2 -->
-  <iframe width="300" height="170"
-  src="https://www.youtube.com/embed/hoNb6HuNmU0"
-  allow="autoplay; encrypted-media" allowfullscreen>
-  </iframe>
-</div>
+  <div class="photo-card">
+    <img src="photo3.jpg">
+    <div class="message">Our first real moment together.</div>
+  </div>
 
-<div class="section fade-in">
-  <h1>Through Everything</h1>
-  <img src="your-photo-3.jpg" alt="Together">
-  <p>
-    Not every day was perfect.
-    But every day with you was worth it.
-    You made me grow.
-    You made me better.
-  </p>
+  <div class="photo-card">
+    <img src="photo4.jpg">
+    <div class="message">When I knew you were special.</div>
+  </div>
 
-  <!-- Romantic Song 3 -->
-  <iframe width="300" height="170"
-  src="https://www.youtube.com/embed/JGwWNGJdvx8"
-  allow="autoplay; encrypted-media" allowfullscreen>
-  </iframe>
-</div>
+  <div class="photo-card">
+    <img src="photo5.jpg">
+    <div class="message">The laugh I never get tired of hearing.</div>
+  </div>
 
-<div class="section fade-in">
-  <h1>Today</h1>
-  <img src="your-photo-4.jpg" alt="Recent Photo">
-  <p>
-    And today…
-    I don’t just love you.
-    I choose you.
-    Every single day.
-  </p>
+  <div class="photo-card">
+    <img src="photo6.jpg">
+    <div class="message">Through every up and down, we stayed strong.</div>
+  </div>
 
-  <h1 style="margin-top:40px;">Happy Valentine’s Day ❤️</h1>
-  <p>
-    This is just the first chapter.
-    Forever starts now.
-  </p>
+  <div class="photo-card">
+    <img src="photo7.jpg">
+    <div class="message">My favorite adventure partner.</div>
+  </div>
+
+  <div class="photo-card">
+    <img src="photo8.jpg">
+    <div class="message">And today, I still choose you. Every single day. ❤️</div>
+  </div>
+
+  <h2 style="margin-top:60px;">Happy Valentine's Day ❤️</h2>
+  <p>This is just the beginning of our forever.</p>
+
 </div>
 
 <script>
-function scrollToNext() {
-  window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+function openGallery() {
+  document.getElementById("gallery").style.display = "block";
+  document.querySelector(".heart-container").style.display = "none";
 }
 
-const faders = document.querySelectorAll('.fade-in');
+function createFloatingHearts() {
+  const heart = document.createElement("div");
+  heart.classList.add("floating-heart");
+  heart.innerText = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
 
-const appearOptions = {
-  threshold: 0.3
-};
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
+}
 
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) {
-      return;
-    } else {
-      entry.target.classList.add('show');
-      appearOnScroll.unobserve(entry.target);
-    }
-  });
-}, appearOptions);
-
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
-});
+setInterval(createFloatingHearts, 600);
 </script>
 
 </body>
